@@ -27,3 +27,26 @@
 3. The worst-case time complexity to check whether a word is compound is O(m^2),
    where 'm' is word length. Hence, for 'n' words, the time complexity is O(n.m^2).
    The word length 'm' is very small for a large dataset.
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/shonali2600/Longest-compounded-word--Impledge.git
+```
+
+Go to the project directory
+
+```bash
+  cd Longest-compounded-word--Impledge
+```
+
+Run the program
+
+```bash
+  Compile and run the program
+  Enter the input file name (ex: Input_01 OR Input_02)
+  
+```
