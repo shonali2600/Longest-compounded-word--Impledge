@@ -7,11 +7,11 @@
 
 2. Identifies & display below given data in logs/console/output file
 
-- longest compounded word
+- Longest compounded word
 
-- second longest compounded word
+- Second longest compounded word
 
-- time taken to process the input file
+- Time taken to process the input file
 
 ## Approach:
 
