@@ -1,11 +1,24 @@
+#include <processthreadsapi.h>
 #include<iostream>
 #include<fstream>
 #include<vector>
 #include<string>
 #include<iomanip>
-#include <chrono>
 using namespace std;
-using namespace std::chrono;
+
+
+/* Function to calculate execution time */
+double get_cpu_time(){
+    FILETIME a,b,c,d;
+    if (GetProcessTimes(GetCurrentProcess(),&a,&b,&c,&d) != 0){
+        return
+            (double)(d.dwLowDateTime |
+            ((unsigned long long)d.dwHighDateTime << 32)) * 0.0000001;
+    }else{
+        //  Handle error
+        return 0;
+    }
+}
 
 const int MAX = 32;
 
@@ -174,13 +187,17 @@ void findCompoundedWords(Trie &T, char *filename) {
 int main(int argc, char *argv[]) {
         Trie T(26);
         char filename[MAX];
-        auto start = high_resolution_clock::now();
+        
+        // Starts measuring execution time
+	double begin = get_cpu_time();
+
         getFile(filename);
         loadData(T, filename);
         findCompoundedWords(T, filename);
-        auto stop = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(stop - start);
-         cout << "Time taken by function: "
-         << duration.count() << " microseconds" << endl;
+        
+        // Stop measuring time and calculate the elapsed time
+    	double end = get_cpu_time();
+    	double elapsed = (end - begin);
+    	printf("Time measured: %.3f seconds.\n", elapsed);
         return 0;
 }
