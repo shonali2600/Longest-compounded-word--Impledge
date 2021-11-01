@@ -47,6 +47,6 @@ Run the program
 
 ```bash
   Compile and run the program
-  Enter the input file name (ex: Input_01 OR Input_02)
+  Enter the input file name (ex: Input_01.txt OR Input_02.txt)
   
 ```
